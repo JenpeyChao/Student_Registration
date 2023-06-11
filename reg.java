@@ -41,13 +41,15 @@ public class reg extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     Connection con1;
     PreparedStatement insert;
-    
+    String connectURL = "jdbc:mysql://localhost:3306/StudentRegistration?zeroDateTimeBehavior=CONVERT_TO_NULL";
+    String user = "root";
+    String Password = "maplestory";
     
     private void print_table(){
         int num;     
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/StudentRegistration?zeroDateTimeBehavior=CONVERT_TO_NULL","root","maplestory");
+            con1 = DriverManager.getConnection(connectURL, user,Password );
             insert = con1.prepareStatement("SELECT * from records");
             
             ResultSet output = insert.executeQuery();
@@ -257,7 +259,7 @@ public class reg extends javax.swing.JFrame {
         try {
             //connects to the database
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/StudentRegistration?zeroDateTimeBehavior=CONVERT_TO_NULL","root","maplestory");
+            con1 = DriverManager.getConnection(connectURL ,user ,Password );
             int id = Integer.parseInt(Dt.getValueAt(index,0).toString());
             String name = txtname.getText();
             String number = txtnumber.getText();
@@ -290,7 +292,7 @@ public class reg extends javax.swing.JFrame {
         try {
             //connects to the database
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/StudentRegistration?zeroDateTimeBehavior=CONVERT_TO_NULL","root","maplestory");
+            con1 = DriverManager.getConnection(connectURL, user,Password );
             insert = con1.prepareStatement("INSERT INTO records(studentName,mobile,course)values('"+name+"','"+number+"','"+course+"')");
             insert.execute();
             txtname.setText("");
@@ -314,7 +316,7 @@ public class reg extends javax.swing.JFrame {
             try {
             //connects to the database
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/StudentRegistration?zeroDateTimeBehavior=CONVERT_TO_NULL","root","maplestory");
+            con1 = DriverManager.getConnection(connectURL, user,Password );
             int id = Integer.parseInt(Dt.getValueAt(index,0).toString());             
             insert = con1.prepareStatement("DELETE FROM records where id = '"+id+"' ");
             insert.execute();
