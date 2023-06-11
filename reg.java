@@ -41,9 +41,9 @@ public class reg extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     Connection con1;
     PreparedStatement insert;
-    String connectURL = "jdbc:mysql://localhost:3306/StudentRegistration?zeroDateTimeBehavior=CONVERT_TO_NULL";
-    String user = "root";
-    String Password = "maplestory";
+    String connectURL = "jdbc:mysql://localhost:3306/StudentRegistration?zeroDateTimeBehavior=CONVERT_TO_NULL"; //change url to your own URL to the database
+    String user = ""; //put your own user
+    String Password = ""; // put your own password
     
     private void print_table(){
         int num;     
